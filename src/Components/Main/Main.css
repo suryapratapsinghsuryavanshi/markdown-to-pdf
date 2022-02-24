@@ -1,0 +1,50 @@
+.main {
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: ms-fill-available;
+    height: fill-available;
+    padding: 0.3rem 1.5rem;
+}
+
+.md_left, .md_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 0.5rem;
+    height: 15rem;
+}
+
+.bottom {
+    height: 3rem;
+    /* border: 2px solid #ff6d6d; */
+    border-radius: 10px;
+    margin: 0.3rem 2rem;
+}
+
+.md_left textarea {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: ms-fill-available;
+    width: fill-available;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: ms-fill-available;
+    height: fill-available;
+
+    resize: none;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+
+    border-radius: 4px;
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+
+@media (min-width: 1920px) {
+    .md_left, .md_right { 
+        height: 24.5rem
+    }
+}

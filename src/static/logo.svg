@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100" viewBox="0 0 300 100">
+  <defs>
+    <clipPath id="clip-logo">
+      <rect width="300" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="logo" clip-path="url(#clip-logo)">
+    <rect width="300" height="100"/>
+    <text id="M_PDF" data-name="M↓PDF" transform="translate(8 84)" fill="#fff" font-size="96" font-family="MesloLGLDZNerdFontCompleteM-Regular, MesloLGLDZ Nerd Font Mono"><tspan x="0" y="0">M↓PDF</tspan></text>
+  </g>
+</svg>

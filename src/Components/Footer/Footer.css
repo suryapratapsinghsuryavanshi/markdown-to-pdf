@@ -1,0 +1,25 @@
+.footer {
+    font-size: 1.5rem;
+    border-top: 2px solid #ff6d6d;
+    border-right: 2px solid #ff6d6d;
+    border-left: 2px solid #ff6d6d;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background: white;
+}
+
+span {
+    color: #ff6d6d;
+    font-size: 28px;
+    font-family: system-ui;
+}
