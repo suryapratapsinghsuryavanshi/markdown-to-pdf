@@ -1,47 +1,48 @@
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #ff6d6d;
-    padding: 0.5rem 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0.5rem 2rem;
+	border-bottom: 2px solid #ff6d6d;
 }
 
 .left {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .left img {
-    width: 100px;
-    border-radius: 5px;
+	width: 100px;
+	border-radius: 5px;
 }
 
-.right ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
+.right ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
 }
 
 .right ul li {
-    margin-left: 2rem;
+	margin-left: 2rem;
 }
 
 .right ul li a {
-    font-size: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    color: #ff6d6d;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+	color: #ff6d6d;
+	font-size: 2rem;
 }
 
 .right ul li a:hover {
-    color: black;
-    transition: all 0.5s ease;
+	color: black;
+	transition: all 0.5s ease;
 }
