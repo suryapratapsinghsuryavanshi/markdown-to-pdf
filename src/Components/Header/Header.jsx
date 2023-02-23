@@ -17,7 +17,7 @@ export default function Header() {
                     <ul>
                         <li><a href="./"><BiHome/></a></li>
                         <li><a target="_blank" href="https://www.buymeacoffee.com/surya0"><BiDonateHeart/></a></li>
-                        <li><a target="_blank" href="https://github.com/suryapratapsinghsuryavanshi"><VscGithubAlt/></a></li>
+                        <li><a target="_blank" href="https://github.com/suryapratapsinghsuryavanshi/markdown-to-pdf"><VscGithubAlt/></a></li>
                     </ul>
                 </div>
             </header>
