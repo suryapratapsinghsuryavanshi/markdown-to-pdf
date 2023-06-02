@@ -2,15 +2,15 @@ import './global.css';
 
 import Header from './Components/Header/Header';
 import Main from './Components/Main/Main';
-import react from 'react';
+import React from 'react'
 
 export default function App() {
 	return (
-		<react.Fragment>
+		<React.Fragment>
 			<div className='app'>
 				<Header />
 				<Main />
 			</div>
-		</react.Fragment>
+		</React.Fragment>
 	);
 }

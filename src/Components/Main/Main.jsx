@@ -1,8 +1,9 @@
+import React from 'react'
 import './Main.css';
 import 'split-pane-react/esm/themes/default.css';
 
 import SplitPane, { Pane, SashContent } from 'split-pane-react';
-import react, { useState } from 'react';
+import { useState } from 'react';
 
 import MPreview from '../MarkdownPreview/MPreview';
 
@@ -11,7 +12,7 @@ export default function Main() {
 	const [markdown, setMarkdown] = useState('');
 
 	return (
-		<react.Fragment>
+		<React.Fragment>
 			<div className='container'>
 				<div className='main'>
 					<SplitPane
@@ -56,19 +57,21 @@ export default function Main() {
 						onClick={(e) => {
 							var divContents = document.getElementsByClassName('preview')[0].innerHTML;
 							var a = window.open('', '', 'height=fit, width=fit');
-							a.document.write('<html>');
-							a.document.write('<head><link rel="stylesheet" href="./print.css"></head>');
-							a.document.write('<body>');
-							a.document.write(divContents);
-							a.document.write('</body></html>');
-							a.document.close();
-							a.name('mpdf');
+							if(a) {
+								a.document.write('<html>');
+								a.document.write('<head><link rel="stylesheet" href="./print.css"></head>');
+								a.document.write('<body>');
+								a.document.write(divContents);
+								a.document.write('</body></html>');
+								a.document.close();
+								a.name = 'mpdf';
+							}
 						}}
 					>
 						Print
 					</button>
 				</div>
 			</div>
-		</react.Fragment>
+		</React.Fragment>
 	);
 }

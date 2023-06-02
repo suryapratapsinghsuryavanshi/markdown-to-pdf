@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react'
 import Logo from './../../static/logo.svg';
 import './Header.css';
 
@@ -8,7 +8,7 @@ import { VscGithubAlt } from 'react-icons/vsc';
 
 export default function Header() {
     return(
-        <react.Fragment>
+        <React.Fragment>
             <header>
                 <div className="left">
                     <img draggable="false" src={Logo} alt="" />
@@ -16,11 +16,11 @@ export default function Header() {
                 <div className="right">
                     <ul>
                         <li><a href="./"><BiHome/></a></li>
-                        <li><a target="_blank" href="https://www.buymeacoffee.com/surya0"><BiDonateHeart/></a></li>
-                        <li><a target="_blank" href="https://github.com/suryapratapsinghsuryavanshi/markdown-to-pdf"><VscGithubAlt/></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/surya0"><BiDonateHeart/></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/suryapratapsinghsuryavanshi/markdown-to-pdf"><VscGithubAlt/></a></li>
                     </ul>
                 </div>
             </header>
-        </react.Fragment>
+        </React.Fragment>
     );
 }

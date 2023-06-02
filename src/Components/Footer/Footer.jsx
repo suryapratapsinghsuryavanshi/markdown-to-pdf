@@ -1,12 +1,12 @@
-import react from 'react';
+import React from 'react'
 import "./Footer.css";
 
 export default function Footer() {
     return(
-        <react.Fragment>
+        <React.Fragment>
             <div className="footer">
                 <h4>Made with <span>♥</span> in India</h4>
             </div>
-        </react.Fragment>
+        </React.Fragment>
     );
 }
