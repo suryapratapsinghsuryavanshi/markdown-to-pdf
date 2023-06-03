@@ -17,3 +17,7 @@
 	align-items: center;
 	height: 100%;
 }
+
+.react-split__pane md_left {
+	overflow: hidden;
+}

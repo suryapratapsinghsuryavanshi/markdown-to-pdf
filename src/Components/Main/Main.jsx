@@ -62,6 +62,7 @@ export default function Main() {
 								a.document.write('<head><link rel="stylesheet" href="./print.css"></head>');
 								a.document.write('<body>');
 								a.document.write(divContents);
+								a.document.write('<script src="./print.js"></script>');
 								a.document.write('</body></html>');
 								a.document.close();
 								a.name = 'mpdf';
