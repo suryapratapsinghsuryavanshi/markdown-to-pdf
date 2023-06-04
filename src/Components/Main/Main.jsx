@@ -69,7 +69,7 @@ export default function Main() {
 							}
 						}}
 					>
-						Print
+						Save
 					</button>
 				</div>
 			</div>
