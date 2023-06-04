@@ -975,5 +975,26 @@ table .last { padding-right: 0; }
     pre .copied {
         display: none !important;
     }
+
+    .wmde-markdown table th{
+        color: black;
+        font-weight: bold;
+    } 
+
+    .wmde-markdown table td{
+        color: rgb(71, 71, 71);
+
+    }
+
+    .wmde-markdown hr{
+        border:2px solid #d1d6de;
+        padding: 0;
+        height: 0px;
+    }
+
+    .wmde-markdown{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
