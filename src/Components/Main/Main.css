@@ -4,8 +4,7 @@
 	width: 100%;
 	max-width: 1600px;
 	height: 100%;
-	padding: 2rem;
-	padding-top: 1.5rem;
+	padding: 0.8rem;
 }
 
 .main {
@@ -13,13 +12,14 @@
 	align-items: center;
 	width: 100%;
 	height: 100%;
+	box-shadow: 0px 4px 6px 0px rgba(50,50,93,0.11) , 0px 1px 3px 0px rgba(0,0,0,0.08);
 }
 
 .bottom {
-	margin-top: 1rem;
 	padding: 0.5rem;
-	border: 2px solid #ff6d6d;
-	border-radius: 10px;
+	margin-top: 1rem;
+	background: white;
+	box-shadow: 0px 4px 6px 0px rgba(50,50,93,0.11) , 0px 1px 3px 0px rgba(0,0,0,0.08);
 }
 
 .md_left {
@@ -32,10 +32,9 @@
 	display: inline-block;
 	width: 100%;
 	min-height: 100%;
-	padding: 2rem;
-	border: 2px solid #ff6d6d;
+	padding: 1rem 0.8rem;
+	border: 2px solid #f1f8f7;
 	border-right: none;
-	border-radius: 10px;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 	outline: none;
@@ -45,74 +44,35 @@
 	z-index: 1;
 	resize: none;
 	direction: ltr;
-}
-
-.collapse-button {
-	position: absolute;
-	top: 50%;
-	width: 1.5rem;
-	height: 5rem;
-	border: 2px solid #ff6d6d;
-	border-radius: 0.75rem;
-	background-color: #fff;
-	color: #ff6d6d;
-	cursor: pointer;
-	z-index: 5;
-	transform: translateY(-50%);
-}
-
-.collapse-button:hover {
-	background-color: #ff6d6d;
-	color: #fff;
-	transition: all 0.3s ease;
-}
-
-.collapse-button.left {
-	right: 1px;
-	border-right: none;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-
-.collapse-button.right {
-	left: 1px;
-	border-left: none;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-
-.collapse-button.right > i {
-	transform: rotate(180deg);
+	background: #f1f8f7;
 }
 
 .split-sash-content {
 	display: flex;
-	background-color: #ff6d6d;
+	width: 8px !important;
+	background-color: transparent;
+	transition: all 0.3s ease;
 }
 
-.gg-chevron-left {
-	display: block;
-	position: relative;
-	width: 22px;
-	height: 22px;
-	border: 2px solid transparent;
-	border-radius: 100px;
-	box-sizing: border-box;
-	transform: scale(var(--ggs, 1));
+.split-sash-content:hover {
+	background-color: rgba(0, 0, 0, 0.377);
 }
 
-.gg-chevron-left::after {
-	display: block;
+.split-sash-content:active {
+	background-color: rgb(0, 0, 0);
+}
+
+.collapse-button {
+	display: none;
 	position: absolute;
-	top: 4px;
-	left: 6px;
-	width: 10px;
-	height: 10px;
-	border-bottom: 2px solid;
-	border-left: 2px solid;
-	content: '';
-	box-sizing: border-box;
-	transform: rotate(45deg);
+	top: 50%;
+	margin-left: 5px;
+	width: 2px;
+	height: 5rem;
+	background-color: #fff;
+	cursor: pointer;
+	z-index: 5;
+	transform: translateY(-50%);
 }
 
 .gg-compress {

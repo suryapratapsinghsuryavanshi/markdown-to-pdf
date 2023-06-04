@@ -5,7 +5,8 @@ header {
 	align-items: center;
 	width: 100%;
 	padding: 0.5rem 2rem;
-	border-bottom: 2px solid #ff6d6d;
+	background: white;
+	box-shadow: 0px 4px 6px 0px rgba(50,50,93,0.11) , 0px 1px 3px 0px rgba(0,0,0,0.08);
 }
 
 .left {
@@ -38,11 +39,11 @@ header {
 	justify-content: center;
 	align-items: center;
 	padding: 5px;
-	color: #ff6d6d;
+	color: #2cada2;
 	font-size: 2rem;
 }
 
 .right ul li a:hover {
-	color: black;
+	color: #2cada2;
 	transition: all 0.5s ease;
 }
