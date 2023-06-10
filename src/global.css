@@ -9,6 +9,8 @@
 
 #root {
 	height: 100vh;
+	background: rgb(242,242,242);
+	background: linear-gradient(90deg, rgba(242,242,242,1) 0%, rgba(226,239,230,1) 100%);
 }
 
 .app {
