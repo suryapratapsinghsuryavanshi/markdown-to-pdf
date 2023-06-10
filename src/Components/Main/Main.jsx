@@ -49,7 +49,14 @@ export default function Main() {
 					<button id='reset' onClick={(e) => setMarkdown('')}>
 						Reset
 					</button>
-					<button onClick={(e) => setPaneSizes([50, 50])}>
+					<button id='resize' onClick={(e) => {
+						setPaneSizes([50, 50])
+						document.querySelector('.split-sash-content').style.backgroundColor = "rgba(0, 0, 0, 0.377)";
+						setTimeout(() => {
+							document.querySelector('.split-sash-content').style.backgroundColor = "transparent";
+							console.log('done');
+						}, 700);
+					}}>
 						<i className='gg-compress'></i>
 					</button>
 					<button
