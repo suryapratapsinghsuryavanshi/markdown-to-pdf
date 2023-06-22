@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Main.css';
 import 'split-pane-react/esm/themes/default.css';
 
@@ -10,9 +10,24 @@ import MPreview from '../MarkdownPreview/MPreview';
 export default function Main() {
 	const [paneSizes, setPaneSizes] = useState([50, 50]);
 	const [markdown, setMarkdown] = useState('');
+	const [alart, setAlart] = useState("");
+
+	const alarting = (msg) => {
+		setAlart(msg);
+		setTimeout(() => {
+			setAlart('');
+		}, 3000);
+	}
+
+	useEffect(() => {
+		if(localStorage.getItem('markdowns')) {
+			setMarkdown(localStorage.getItem('markdowns'));
+		}
+	}, []);
 
 	return (
 		<React.Fragment>
+			{alart !== "" && <div className='alart'>{alart}</div>}
 			<div className='container'>
 				<div className='main'>
 					<SplitPane
@@ -46,9 +61,17 @@ export default function Main() {
 					</SplitPane>
 				</div>
 				<div className='bottom'>
-					<button id='reset' onClick={(e) => setMarkdown('')}>
+					<button id='reset' onClick={(e) => {
+						setMarkdown('');
+						localStorage.removeItem('markdowns');
+					}}>
 						Reset
 					</button>
+					<button onClick={(e) => {
+						e.preventDefault();
+						localStorage.setItem('markdowns', markdown);
+						alarting('Markdowns Saved');
+					}}>Save Markdowns</button>
 					<button id='resize' onClick={(e) => {
 						setPaneSizes([50, 50])
 						document.querySelector('.split-sash-content').style.backgroundColor = "rgba(0, 0, 0, 0.377)";
@@ -59,6 +82,7 @@ export default function Main() {
 					}}>
 						<i className='gg-compress'></i>
 					</button>
+					<a href='https://preserve.ml/'><button>Publish PDF</button></a>
 					<button
 						id='prin'
 						onClick={(e) => {
@@ -76,7 +100,7 @@ export default function Main() {
 							}
 						}}
 					>
-						Save
+						Export PDF
 					</button>
 				</div>
 			</div>

@@ -36,6 +36,7 @@
 	font-size: 1.3rem;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	border-radius: 6px;
 }
 
 .bottom button:hover {
