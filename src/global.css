@@ -8,10 +8,28 @@
 	transition: all 0.3s ease-in-out;
 }
 
+::-webkit-scrollbar {
+	width: 8px;
+	height: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #8888886e;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
 #root {
 	height: 100vh;
-	background: rgb(242,242,242);
-	background: linear-gradient(90deg, rgba(242,242,242,1) 0%, rgba(226,239,230,1) 100%);
+	background: rgb(242, 242, 242);
+	background: linear-gradient(90deg, rgba(242, 242, 242, 1) 0%, rgba(226, 239, 230, 1) 100%);
 }
 
 .app {
