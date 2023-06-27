@@ -4,6 +4,10 @@ import 'split-pane-react/esm/themes/default.css';
 
 import SplitPane, { Pane, SashContent } from 'split-pane-react';
 import { useState } from 'react';
+import { BiReset } from 'react-icons/bi'
+import { LuSaveAll } from 'react-icons/lu'
+import { MdPublishedWithChanges } from 'react-icons/md'
+import { MdOutlineSaveAlt } from 'react-icons/md'
 
 import MPreview from '../MarkdownPreview/MPreview';
 
@@ -65,13 +69,13 @@ export default function Main() {
 						setMarkdown('');
 						localStorage.removeItem('markdowns');
 					}}>
-						Reset
+						<BiReset/>
 					</button>
 					<button onClick={(e) => {
 						e.preventDefault();
 						localStorage.setItem('markdowns', markdown);
 						alarting('Markdowns Saved');
-					}}>Save Markdowns</button>
+					}} id='save'><LuSaveAll/></button>
 					<button id='resize' onClick={(e) => {
 						setPaneSizes([50, 50])
 						document.querySelector('.split-sash-content').style.backgroundColor = "rgba(0, 0, 0, 0.377)";
@@ -82,7 +86,7 @@ export default function Main() {
 					}}>
 						<i className='gg-compress'></i>
 					</button>
-					<a href='https://preserve.ml/'><button>Publish PDF</button></a>
+					<a href='https://preserve.ml/'><button id='publish'><MdPublishedWithChanges/></button></a>
 					<button
 						id='prin'
 						onClick={(e) => {
@@ -100,7 +104,7 @@ export default function Main() {
 							}
 						}}
 					>
-						Export PDF
+						<MdOutlineSaveAlt/>
 					</button>
 				</div>
 			</div>
