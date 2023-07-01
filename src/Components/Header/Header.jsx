@@ -7,7 +7,7 @@ import { BiDonateHeart } from 'react-icons/bi';
 import { VscGithubAlt } from 'react-icons/vsc';
 
 export default function Header() {
-    return(
+    return (
         <React.Fragment>
             <header>
                 <div className="left">
@@ -15,9 +15,15 @@ export default function Header() {
                 </div>
                 <div className="right">
                     <ul>
-                        <li><a href="./"><BiHome/></a></li>
-                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/surya0"><BiDonateHeart/></a></li>
-                        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/suryapratapsinghsuryavanshi/markdown-to-pdf"><VscGithubAlt/></a></li>
+                        {/* <li>
+                            <label class="switch">
+                                <input type="checkbox"/>
+                                <span class="slider round"></span>
+                            </label>
+                        </li> */}
+                        <li><a href="./"><BiHome /></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/surya0"><BiDonateHeart /></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/suryapratapsinghsuryavanshi/markdown-to-pdf"><VscGithubAlt /></a></li>
                     </ul>
                 </div>
             </header>

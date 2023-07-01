@@ -97,6 +97,7 @@ export default function Main() {
 								a.document.write('<head><link rel="stylesheet" href="./print.css"></head>');
 								a.document.write('<body>');
 								a.document.write(divContents);
+								a.document.write('<a id="branding" title="https://mpdf.tech/" role="link" target="_blank" rel="noopener noreferrer nofollow" class="text-bold" href="https://mpdf.tech/"><img src="/fav.svg"/><p>mpdf.tech</p></a>');
 								a.document.write('<script src="./print.js"></script>');
 								a.document.write('</body></html>');
 								a.document.close();

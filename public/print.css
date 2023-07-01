@@ -995,6 +995,26 @@ table .last { padding-right: 0; }
     .wmde-markdown{
         display: flex;
         flex-direction: column;
+        margin-top: 1rem;
     }
 }
 
+#branding {
+    position: absolute;
+    top: -8px;
+    right: 8;
+    display: flex;
+    column-gap: 3px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+#branding img{
+	width: 20px;
+}
+
+#branding p {
+    font-size: 9px;
+}
