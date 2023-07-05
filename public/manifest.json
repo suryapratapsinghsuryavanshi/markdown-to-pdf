@@ -1,0 +1,16 @@
+{
+    "name": "MPdf",
+    "short_name": "MPdf",
+    "theme_color": "#2cada2",
+    "background_color": "#F7F7F7",
+    "display": "standalone",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "./logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ]
+}
