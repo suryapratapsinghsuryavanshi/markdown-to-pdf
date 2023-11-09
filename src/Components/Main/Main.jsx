@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './Main.css';
 import 'split-pane-react/esm/themes/default.css';
 
@@ -16,6 +16,8 @@ export default function Main() {
 	const [markdown, setMarkdown] = useState('');
 	const [alart, setAlart] = useState("");
 
+	const markRef = useRef(null);
+
 	const alarting = (msg) => {
 		setAlart(msg);
 		setTimeout(() => {
@@ -27,12 +29,41 @@ export default function Main() {
 		if(localStorage.getItem('markdowns')) {
 			setMarkdown(localStorage.getItem('markdowns'));
 		}
+
+		markRef.current.focus();
 	}, []);
 
 	return (
 		<React.Fragment>
 			{alart !== "" && <div className='alart'>{alart}</div>}
-			<div className='container'>
+			<div className='container'onKeyDown={(key) => {
+				if(key.ctrlKey && key.key === 's' || key.ctrlKey && key.key === 'S') {
+					key.preventDefault();
+					localStorage.setItem('markdowns', markdown);
+					alarting('Markdowns Saved');
+				}
+
+				if(key.ctrlKey && key.key === 'd' || key.ctrlKey && key.key === 'D') {
+					setMarkdown('');
+					localStorage.removeItem('markdowns');
+				}
+
+				if(key.ctrlKey && key.key === 'p' || key.ctrlKey && key.key === 'P') {
+					var divContents = document.getElementsByClassName('preview')[0].innerHTML;
+					var a = window.open('', '', 'height=fit, width=fit');
+					if(a) {
+						a.document.write('<html>');
+						a.document.write('<head><link rel="stylesheet" href="./print.css"></head>');
+						a.document.write('<body>');
+						a.document.write(divContents);
+						a.document.write('<a id="branding" title="https://mpdf.tech/" role="link" target="_blank" rel="noopener noreferrer nofollow" class="text-bold" href="https://mpdf.tech/"><img src="/fav.svg"/><p>mpdf.tech</p></a>');
+						a.document.write('<script src="./print.js"></script>');
+						a.document.write('</body></html>');
+						a.document.close();
+						a.name = 'mpdf';
+					}
+				}
+			}}>
 				<div className='main'>
 					<SplitPane
 						sizes={paneSizes}
@@ -54,6 +85,7 @@ export default function Main() {
 								}}
 								value={markdown}
 								placeholder='Write Markdown'
+								ref={markRef}
 							></textarea>
 						</Pane>
 						<Pane className='md_right'>
