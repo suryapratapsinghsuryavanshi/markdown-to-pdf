@@ -6,7 +6,7 @@ import SplitPane, { Pane, SashContent } from 'split-pane-react';
 import { useState } from 'react';
 import { BiReset } from 'react-icons/bi'
 import { LuSaveAll } from 'react-icons/lu'
-import { MdPublishedWithChanges } from 'react-icons/md'
+import { MdOutlineStickyNote2  } from 'react-icons/md'
 import { MdOutlineSaveAlt } from 'react-icons/md'
 
 import MPreview from '../MarkdownPreview/MPreview';
@@ -14,7 +14,12 @@ import MPreview from '../MarkdownPreview/MPreview';
 export default function Main() {
 	const [paneSizes, setPaneSizes] = useState([50, 50]);
 	const [markdown, setMarkdown] = useState('');
+	const [markdownSave, setMarkdownSave] = useState([]);
 	const [alart, setAlart] = useState("");
+	const [pageCount, setPageCount] = useState(1);
+	const [currentPage, setCurrentPage] = useState(0);
+
+	const [pageModel, setPageModel] = useState(false);
 
 	const markRef = useRef(null);
 
@@ -26,11 +31,27 @@ export default function Main() {
 	}
 
 	useEffect(() => {
+		if(localStorage.getItem('page_count')) {
+			setPageCount(parseInt(localStorage.getItem('page_count')));
+		}
+
 		if(localStorage.getItem('markdowns')) {
-			setMarkdown(localStorage.getItem('markdowns'));
+			setMarkdownSave(JSON.parse(localStorage.getItem('markdowns')));
+			setMarkdown(JSON.parse(JSON.parse(localStorage.getItem('markdowns'))[parseInt(localStorage.getItem('current_page'))]));
+		}
+
+		if(localStorage.getItem('current_page')) {
+			setCurrentPage(parseInt(localStorage.getItem('current_page')));
 		}
 
 		markRef.current.focus();
+
+		// click outside from page model but in models
+		document.addEventListener('click', (e) => {
+			if(e.target.classList.contains('models')) {
+				setPageModel(false);
+			}
+		});
 	}, []);
 
 	return (
@@ -105,7 +126,12 @@ export default function Main() {
 					</button>
 					<button onClick={(e) => {
 						e.preventDefault();
-						localStorage.setItem('markdowns', markdown);
+						var temp_list = [...markdownSave];
+						temp_list[currentPage] = `${JSON.stringify(markdown)}`;
+						setMarkdownSave(temp_list)
+						localStorage.setItem('markdowns', JSON.stringify(temp_list));
+						localStorage.setItem('page_count', pageCount);
+						localStorage.setItem('current_page', currentPage);
 						alarting('Markdowns Saved');
 					}} id='save'><LuSaveAll/></button>
 					<button id='resize' onClick={(e) => {
@@ -118,7 +144,11 @@ export default function Main() {
 					}}>
 						<i className='gg-compress'></i>
 					</button>
-					<a href='https://preserve.ml/'><button id='publish'><MdPublishedWithChanges/></button></a>
+					<button onClick={() => {
+						setPageModel(!pageModel);
+					}} id='publish'>
+						<MdOutlineStickyNote2/>
+					</button>
 					<button
 						id='prin'
 						onClick={(e) => {
@@ -141,6 +171,47 @@ export default function Main() {
 					</button>
 				</div>
 			</div>
+			{
+				pageModel && <div className="models">
+					<div className="page_model">
+						<div className="pages">
+							{
+								markdownSave.map((val, i) => {
+									return <div onClick={() => {
+										setMarkdown(JSON.parse(markdownSave[i]));
+										setCurrentPage(i);
+										setPageModel(false);
+									}} className="page">Page-{i}</div>
+								})
+							}
+						</div>
+						<div className="new_page">
+							<button onClick={() => {
+								if(markdownSave.length === 0) {
+									var temp_list = [...markdownSave];
+									temp_list.push(`${JSON.stringify(markdown)}`);
+									setMarkdownSave(temp_list)
+									localStorage.setItem('markdowns', JSON.stringify(temp_list));
+									localStorage.setItem('page_count', 1);
+									localStorage.setItem('current_page', 0);
+									return;
+								}else {
+									var temp_list = [...markdownSave];
+									temp_list.push(`${JSON.stringify("")}`);
+									setMarkdownSave(temp_list)
+									setCurrentPage(temp_list.length - 1);
+									setPageCount(temp_list.length);
+									localStorage.setItem('markdowns', JSON.stringify(temp_list));
+									localStorage.setItem('page_count', pageCount + 1);
+									localStorage.setItem('current_page', pageCount);
+									setMarkdown("");
+									setPageModel(false);
+								}
+							}} className='new_page_btn'>New Page</button>
+						</div>
+					</div>
+				</div>
+			}
 		</React.Fragment>
 	);
 }

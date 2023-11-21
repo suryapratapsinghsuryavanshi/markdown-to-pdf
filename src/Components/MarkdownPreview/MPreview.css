@@ -86,7 +86,7 @@
 }
 
 #publish:hover::after {
-	content: "Publish";
+	content: "Pages";
 	position: absolute;
 	bottom: 65px;
 	padding: 5px;

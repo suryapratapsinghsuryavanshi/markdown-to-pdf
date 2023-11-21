@@ -124,3 +124,68 @@
 	border-radius: 8px;
 	font-size: 1.1rem;
 }
+
+.models {
+	z-index: 100;
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.068);
+	justify-content: center;
+	align-items: center;
+}
+
+.page_model {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 20rem;
+	height: 10rem;
+	background: white;
+	box-shadow: 0px 4px 6px 0px rgba(50,50,93,0.11) , 0px 1px 3px 0px rgba(0,0,0,0.08);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.pages {
+	padding: 1rem;
+	width: 100%;
+	margin-bottom: 0.6rem;
+	display: flex;
+	flex-direction: row;
+	overflow-x: scroll;
+}
+
+.page {
+	border: #2cada2 2px solid;
+	border-radius: 5px;
+	padding: 0.2rem 0.3rem;
+	color: #2cada2;
+	font-weight: bold;
+	cursor: pointer;
+	user-select: none;
+	margin: 0 0.2rem;
+}
+
+.new_page_btn {
+	height: 100%;
+	padding: 0.3rem 0.8rem;
+	border: 2px solid #2cada2;
+	background: #2cada2;
+	color: #fff;
+	font-size: 1.3rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border-radius: 6px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.new_page_btn:hover {
+	color: #2cada2;
+	background: white;
+}
