@@ -31,6 +31,15 @@ export default function Main() {
 	}
 
 	useEffect(() => {
+		// if get any error reset all localstorage
+		window.onerror = function() {
+			localStorage.removeItem('markdowns');
+			localStorage.removeItem('page_count');
+			localStorage.removeItem('current_page');
+			// refresh page
+			window.location.reload();
+		}
+
 		if(localStorage.getItem('page_count')) {
 			setPageCount(parseInt(localStorage.getItem('page_count')));
 		}
@@ -180,6 +189,7 @@ export default function Main() {
 									return <div onClick={() => {
 										setMarkdown(JSON.parse(markdownSave[i]));
 										setCurrentPage(i);
+										localStorage.setItem('current_page', i);
 										setPageModel(false);
 									}} className="page">Page-{i}</div>
 								})
