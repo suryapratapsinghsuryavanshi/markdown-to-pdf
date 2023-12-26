@@ -186,7 +186,7 @@ export default function Main() {
 						<div className="pages">
 							{
 								markdownSave.map((val, i) => {
-									return <div onClick={() => {
+									return <div key={String(i)} onClick={() => {
 										setMarkdown(JSON.parse(markdownSave[i]));
 										setCurrentPage(i);
 										localStorage.setItem('current_page', i);
