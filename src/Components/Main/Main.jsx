@@ -69,7 +69,12 @@ export default function Main() {
 			<div className='container'onKeyDown={(key) => {
 				if(key.ctrlKey && key.key === 's' || key.ctrlKey && key.key === 'S') {
 					key.preventDefault();
-					localStorage.setItem('markdowns', markdown);
+					var temp_list = [...markdownSave];
+					temp_list[currentPage] = `${JSON.stringify(markdown)}`;
+					setMarkdownSave(temp_list)
+					localStorage.setItem('markdowns', JSON.stringify(temp_list));
+					localStorage.setItem('page_count', pageCount);
+					localStorage.setItem('current_page', currentPage);
 					alarting('Markdowns Saved');
 				}
 
