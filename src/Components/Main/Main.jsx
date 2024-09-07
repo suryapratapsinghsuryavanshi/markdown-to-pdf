@@ -8,6 +8,7 @@ import { BiReset } from 'react-icons/bi'
 import { LuSaveAll } from 'react-icons/lu'
 import { MdOutlineStickyNote2  } from 'react-icons/md'
 import { MdOutlineSaveAlt } from 'react-icons/md'
+import { MdOutlineCloudSync } from "react-icons/md";
 
 import MPreview from '../MarkdownPreview/MPreview';
 
@@ -20,6 +21,7 @@ export default function Main() {
 	const [currentPage, setCurrentPage] = useState(0);
 
 	const [pageModel, setPageModel] = useState(false);
+	const [pageSyncModel, setPageSyncModel] = useState(false);
 
 	const markRef = useRef(null);
 
@@ -59,6 +61,13 @@ export default function Main() {
 		document.addEventListener('click', (e) => {
 			if(e.target.classList.contains('models')) {
 				setPageModel(false);
+			}
+		});
+
+		// click outside from page sync model but in models
+		document.addEventListener('click', (e) => {
+			if(e.target.classList.contains('models')) {
+				setPageSyncModel(false);
 			}
 		});
 	}, []);
@@ -137,6 +146,11 @@ export default function Main() {
 						localStorage.removeItem('markdowns');
 					}}>
 						<BiReset/>
+					</button>
+					<button id='sync' onClick={(e) => {
+						setPageSyncModel(!pageSyncModel);
+					}}>
+						<MdOutlineCloudSync/>
 					</button>
 					<button onClick={(e) => {
 						e.preventDefault();
@@ -223,6 +237,19 @@ export default function Main() {
 									setPageModel(false);
 								}
 							}} className='new_page_btn'>New Page</button>
+						</div>
+					</div>
+				</div>
+			}
+			{
+				pageSyncModel && <div className="models">
+					<div className="page_model">
+						<div className="pages">
+							<input type="text" name="token" id="token" placeholder="Token" />
+						</div>
+						<div className="new_page">
+							<button className='new_page_btn'>Create</button>
+							<button className='new_page_btn'>Sync</button>
 						</div>
 					</div>
 				</div>

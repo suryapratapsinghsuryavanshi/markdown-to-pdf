@@ -158,6 +158,17 @@
 	overflow-x: scroll;
 }
 
+.pages input {
+	font-size: 0.9rem;
+	width: 100%;
+	padding: 0.2rem 0.3rem;
+	border: #2cada2 2px solid;
+	border-radius: 5px;
+	color: #2cada2;
+	font-weight: bold;
+	outline: none;
+}
+
 .page {
 	border: #2cada2 2px solid;
 	border-radius: 5px;
@@ -188,4 +199,12 @@
 .new_page_btn:hover {
 	color: #2cada2;
 	background: white;
+}
+
+.new_page {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.7rem;
 }
