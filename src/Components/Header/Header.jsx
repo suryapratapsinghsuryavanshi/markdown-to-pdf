@@ -21,7 +21,6 @@ export default function Header() {
                                 <span class="slider round"></span>
                             </label>
                         </li> */}
-                        <li><a href="./"><BiHome /></a></li>
                         <li><a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/surya0"><BiDonateHeart /></a></li>
                         <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/suryapratapsinghsuryavanshi/markdown-to-pdf"><VscGithubAlt /></a></li>
                     </ul>
