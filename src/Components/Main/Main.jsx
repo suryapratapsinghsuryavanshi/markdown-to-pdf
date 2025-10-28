@@ -67,7 +67,7 @@ export default function Main() {
 		<React.Fragment>
 			{alart !== "" && <div className='alart'>{alart}</div>}
 			<div className='container'onKeyDown={(key) => {
-				if(key.ctrlKey && key.key === 's' || key.ctrlKey && key.key === 'S') {
+				if((key.metaKey || key.ctrlKey) && key.key === 's' || (key.metaKey || key.ctrlKey) && key.key === 'S') {
 					key.preventDefault();
 					var temp_list = [...markdownSave];
 					temp_list[currentPage] = `${JSON.stringify(markdown)}`;
