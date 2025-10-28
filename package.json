@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@uiw/react-markdown-preview": "^4.1.13",
+    "emoji-picker-react": "^4.15.0",
     "hast-util-raw": "^7.2.1",
     "mermaid": "^10.2.2",
     "react": "^18.2.0",

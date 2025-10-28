@@ -8,6 +8,8 @@ import { BiReset } from 'react-icons/bi'
 import { LuSaveAll } from 'react-icons/lu'
 import { MdOutlineStickyNote2  } from 'react-icons/md'
 import { MdOutlineSaveAlt } from 'react-icons/md'
+import { BsEmojiSmile } from 'react-icons/bs'
+import EmojiPicker from 'emoji-picker-react';
 
 import MPreview from '../MarkdownPreview/MPreview';
 
@@ -20,8 +22,10 @@ export default function Main() {
 	const [currentPage, setCurrentPage] = useState(0);
 
 	const [pageModel, setPageModel] = useState(false);
+	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
 	const markRef = useRef(null);
+	const emojiPickerRef = useRef(null);
 
 	const alarting = (msg) => {
 		setAlart(msg);
@@ -61,6 +65,19 @@ export default function Main() {
 				setPageModel(false);
 			}
 		});
+
+		// Close emoji picker when clicking outside
+		const handleClickOutside = (event) => {
+			if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target) &&
+				!event.target.closest('.emoji-button')) {
+				setShowEmojiPicker(false);
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
 	}, []);
 
 	return (
@@ -110,18 +127,48 @@ export default function Main() {
 							<button className='collapse-button left' onClick={() => setPaneSizes([0, 100])}>
 								<i className='gg-chevron-left'></i>
 							</button>
-							<textarea
-								name='md-edit'
-								id='md-edit'
-								cols='30'
-								rows='10'
-								onChange={(e) => {
-									setMarkdown(e.target.value);
-								}}
-								value={markdown}
-								placeholder='Write Markdown'
-								ref={markRef}
-							></textarea>
+							<div className="editor-container">
+								<button 
+									className="emoji-button"
+									onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+								>
+									<BsEmojiSmile />
+								</button>
+								{showEmojiPicker && (
+									<div className="emoji-picker-container" ref={emojiPickerRef}>
+										<EmojiPicker
+											onEmojiClick={(emojiObject) => {
+												const cursor = markRef.current.selectionStart;
+												const text = markdown.slice(0, cursor) + emojiObject.emoji + markdown.slice(cursor);
+												setMarkdown(text);
+												setShowEmojiPicker(false);
+												markRef.current.focus();
+											}}
+											width={300}
+											height={400}
+											skinTonesDisabled={false}
+											searchDisabled={false}
+											lazyLoadEmojis={true}
+											previewConfig={{
+												defaultCaption: 'Pick your emoji...',
+												defaultEmoji: '1f60a'
+											}}
+										/>
+									</div>
+								)}
+								<textarea
+									name='md-edit'
+									id='md-edit'
+									cols='30'
+									rows='10'
+									onChange={(e) => {
+										setMarkdown(e.target.value);
+									}}
+									value={markdown}
+									placeholder='Write Markdown'
+									ref={markRef}
+								></textarea>
+							</div>
 						</Pane>
 						<Pane className='md_right'>
 							<button className='collapse-button right' onClick={() => setPaneSizes([100, 0])}>
